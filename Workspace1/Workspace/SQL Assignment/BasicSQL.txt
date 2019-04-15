@@ -1,0 +1,310 @@
+1)	Select Queries
+
+1.	Display all departments from department table.
+
+SELECT department_name FROM departments;
+
+2.	Display all employees from employee table.
+
+ SELECT *
+    -> FROM employees;
+
+
+3.	Select the employee in department 30.
+
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE department_id=30;
+
+4.	List the names, numbers and departmentno of all clerks.
+mysql> SELECT first_name, last_name, department_id
+    -> FROM employees
+    -> WHERE job_id like '%CLERK';
+
+5.	Find the depart numbers and the name of employee of all dept with Deptno greater or equal to 20.
+
+mysql> SELECT first_name, last_name, department_id
+    -> FROM employees
+    -> WHERE department_id >=20;
+
+6.	Find the employees whose commission is greater than their salary.
+
+
+7.	Find the employees whose commission is greater than 60 percent of their salary.
+
+
+8.	Find the employee whose commission is greater than 50 percent of their salary.
+
+
+
+9.	List the name, job and salary of all employees in dept 20 who earn more than 2000.
+mysql> SELECT first_name, last_name,salary
+    -> FROM employees
+    -> WHERE department_id = 20 and salary > 2000;
+
+
+10.	Find all salesmen in dept 30 whose salary is greater than or equal to Rs. 1500.
+
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE department_id = 30 and salary >=1500 and job_id like '%SA_MAN';
+
+
+11.	Find all the employees whose job is either a president or manager.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE  department_id =10 and job_id like '%PRES' or job_id like '%MGR' or job_id like '%MAN';
+
+
+12.	Find all managers who are not in dept 30.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE job_id like '%MGR' and department_id !=30 ;
+
+
+13.	Find the details of all managers and clerks in dept 10.
+
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE job_id like '%CLERK' and job_id like '%MGR' or job_id like '%MAN' and department_id =10;
+
+14.	Find the details of all manager (in any dept) and all clerks in dept 10
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE job_id like '%MGR' or job_id like '%MAN' OR job_id like '%CLERK'and department_id =10;
+
+
+15.	Find the details of all managers in dept 10 and all clerks in dept 20.
+
+mysql> SELECT *
+    -> FROM employees
+    ->  WHERE job_id like '%MGR' AND department_id=20 or job_id like '%MAN' and department_id =20 OR job_id like '%CLERK'and department_id =10;
+
+16.	Find all employees who are neither clerks nor manager but whose salary is greater than or equal to Rs. 2000.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE job_id not like '%MGR' AND job_id not like '%MAN'AND job_id not like '%CLERK' and salary>2000;
+
+17.	Find the employees who earns between Rs. 1200 and Rs.1400.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE salary between 1200 and 1400;
+
+
+18.	Find the employees who are clerks, analysts or salesman.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE job_id like '%SA%' or job_id like '%CLERK%';
+
+
+
+19.	Find the employees who are not clerks, analyst or salesman.
+
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE job_id not like '%SA%' AND job_id not like '%CLERK%';
+
+20.	Find the employees who do not receive a commission i.e. commission is NULL.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE commission_pct is NULL;
+
+
+21.	Find the employee whose commission is Rs. 0.
+mysql> SELECT *
+    -> FROM employees
+    -> WHERE commission_pct =0;
+
+
+22.	Find the different jobs of the employees receiving commission.
+mysql> SELECT job_id
+    -> FROM employees
+    -> WHERE commission_pct is not NULL;
+
+
+
+23.	Find all employees who do not receive a commission or whose Commission is less than Rs. 100. 
+mysql> SELECT * FROM employees WHERE commission_pct is NULL or commission_pct*salary<100;
+
+24.	The employees who not receiving commission are entailed to Rs. 250, Show the net earnings of all employees. (find about nvl() )
+
+SELECT first_name, salary+250 as Earning FROM employees WHERE commission_pct is NULL;
+
+25.	Find all employees whose total earnings are greater than Rs. 2000.
+mysql> SELECT * FROM employees WHERE salary+commission_pct*salary>2000;
+
+
+26.	Find all employees whose names begin with m.
+
+mysql> SELECT * FROM employees WHERE first_name like'm%';
+
+27.	Find all employees whose names end with m.
+
+mysql> SELECT * FROM employees WHERE first_name like'%m';
+
+28.	Find all employees whose names contain the letter m.
+
+mysql> SELECT * FROM employees WHERE first_name like'%m%';
+
+
+29.	Find the employees whose names are 5 characters long and end with n.
+
+mysql> SELECT * FROM employees WHERE first_name like'%____n';
+
+
+30.	Find the employees who have the letter r as the third letter in their name.
+
+
+mysql> SELECT * FROM employees WHERE first_name like'__r%';
+
+
+2)	Numeric, Character & Date Function 
+
+
+31.	Find all employees hired in month of February (of any year).
+
+mysql> SELECT * FROM employees WHERE month(hire_date)=2;
+
+
+
+32.	Find all employees who were hired on the last day of the month. 
+
+mysql> SELECT * FROM employees WHERE last_day(hire_date) = hire_date;
+
+
+33.	Find the employees who were hired more than 12 years ago.
+SELECT * FROM employees WHERE timestampdiff(year,hire_date,now())>12;
+
+34.	Find the managers hired in the year 2007.
+
+SELECT * FROM employees WHERE year(hire_date)=2007 and job_id like "%MGR";
+
+35.	Display the names and the jobs of all employees, separated by ','(comma). For example (smith, clerk).
+
+select concat(first_name,',',job_id) from employees;
+
+36.	Display the names of all employees with the initial letter only in capitals.
+
+ select LEFT(first_name, 13) from employees;
+
+37.	Display the names of all employees, right aligning them to 15 characters.
+
+SELECT RIGHT('          ' + RTRIM([first_name]), 15);
+
+38.	Display the names of all employees, padding them to right up-to 15 characters with '-'.
+
+
+
+39.	Display the length of the name of all employees.
+SELECT first_name,last_name, LENGTH(first_name)+LENGTH(last_name)  'Length of  Names' 
+    FROM employees;
+
+
+40.	Display the names of all employees centering them with 20 characters.
+
+
+
+41.	Display the names of all employees without any leading 'a'.
+select first_name from employees where first_name not like 'a%';
+
+
+42.	Display the names of all employees without any trailing 'r'.
+
+mysql> select first_name from employees where first_name not like '%r';
+
+43.	Show the first three characters of the names of all employees.
+
+mysql> select left(first_name,3) from employees;
+
+44.	Show the last three characters of the names of all employees.
+
+mysql> select right(first_name,3) from employees;
+
+45.	Display the names of all employees replacing any 'a' with 'e'.
+
+
+mysql> select replace(first_name,'A','E') from employees;
+
+46.	Display the names of all employees and the position at which the string 'ar' occurs in the name.
+
+
+mysql> SELECT first_name, POSITION("ar" IN first_name) as Count
+    -> from employees;
+
+47.	Show the salary of all employees rounding it to the nearest Rs. 1000. For example (3790 will be 4000)
+
+48.	Show the daily salary of all employees assuming a month has 30 days.
+mysql> select first_name, job_id, salary/30 as daily_sal from employees;
+
+
+49.	Display the name of all employees, and their bonus. Assume each Employee gets a bonus of 20 percent of his salary subject to the Maximum of Rs. 500.
+ mysql>  select first_name, job_id, 1.2*salary as bonus from employees where 0.2*salary<=500;
+
+50.	Display the name of all employees, and their bonus. Assume each employee gets a bonus of 20 percent of his salary subject to the Maximum of Rs. 200.
+
+mysql>  select first_name, job_id, 1.2*salary as bonus from employees where 0.2*salary<=200;
+
+51.	For each employee display the number of days passed since the employee joined the company.
+mysql> select first_name, timestampdiff(month,hire_date,now())*30 as tenure from employees;
+52.	For each employee display the number of months passed since the Employee joined the company.
+
+ select first_name, timestampdiff(month,hire_date,now()) as tenure from employees;
+
+53.	Display the tenure of service in the years, months and days for all Employees in character format. Assume every month has 30 days.
+
+ select first_name,timestampdiff(year,hire_date,now()) as YearTenure, timestampdiff(month,hire_date,now()) as MonTenure,timestampdiff(month,hire_date,now())*30 as Daystenure from employees;
+
+54.	Display the employee details in the following manner. 'Miler joined on the twenty-third of January of the year nineteen hundred and eighty Two'.
+
+
+
+
+
+
+
+3)	Ordering by Queries
+
+
+
+
+55.	Display the details of all employees, sorted on the names.
+
+mysql> select first_name
+    -> from employees
+    -> order by first_name;
+
+
+
+56.	Display the name of all employees, based on their tenure, with the oldest employee coming first.
+mysql> select first_name, timestampdiff(year,hire_date,now()) as tenure
+    -> from employees
+    -> order by tenure desc;
+
+57.	Display the names, job and salary of all employees sorted on jobs and Salary.
+sql> select first_name, job_id, salary from employees order by job_id,salary;
+
+
+58.	Display the names, job and salary of all employees, sorted on jobs and within job, sorted on the descending order of salary.
+
+select first_name, job_id, salary from employees order by job_id,salary desc;
+
+
+59.	Display the names, job and salary of all employees, sorted on Descending order of job and within job, sorted on the descending order of salary.
+select first_name, job_id, salary from employees order by job_id desc,salary desc;
+
+60.	 Display the name, month and year of all employees, sorted on the month of their hire date irrespective of the year.
+
+mysql> select first_name, month(hire_date) as Mon ,year(hire_date) as Yr from employees order by Mon;
+
+61.	Display the name, month and year of joining of all employees, sorted on the month of their hire date, and within that on the year, with the earliest year appearing first.
+
+mysql> select first_name, month(hire_date) as Mon ,year(hire_date) as Yr from employees order by Mon, Yr;
+
+
+
+
+
+
+
+
+

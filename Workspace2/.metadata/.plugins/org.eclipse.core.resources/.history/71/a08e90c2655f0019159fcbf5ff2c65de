@@ -1,0 +1,9 @@
+package com.capgemini.demo.myapp;
+
+
+@Controller
+public class HelloController {
+	public String helloWorld() {
+		return "Hello World !!!!";
+	}
+}

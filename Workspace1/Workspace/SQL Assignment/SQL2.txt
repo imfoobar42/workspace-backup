@@ -1,0 +1,325 @@
+mysql> select department_name,d.location_id,city, street_address, state_province,country_name from locations l join departments d join countries c on l.location_id=d.location_id and l.country_id=c.country_id;
++----------------------+-------------+---------------------+------------------------------------------+----------------+--------------------------+
+| department_name      | location_id | city                | street_address                           | state_province | country_name             |
++----------------------+-------------+---------------------+------------------------------------------+----------------+--------------------------+
+| IT                   |        1400 | Southlake           | 2014 Jabberwocky Rd                      | Texas          | United States of America |
+| Shipping             |        1500 | South San Francisco | 2011 Interiors Blvd                      | California     | United States of America |
+| Administration       |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Purchasing           |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Executive            |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Finance              |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Accounting           |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Treasury             |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Corporate Tax        |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Control And Credit   |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Shareholder Services |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Benefits             |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Manufacturing        |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Construction         |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Contracting          |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Operations           |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| IT Support           |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| NOC                  |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| IT Helpdesk          |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Government Sales     |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Retail Sales         |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Recruiting           |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Payroll              |        1700 | Seattle             | 2004 Charade Rd                          | Washington     | United States of America |
+| Marketing            |        1800 | Toronto             | 147 Spadina Ave                          | Ontario        | Canada                   |
+| Human Resources      |        2400 | London              | 8204 Arthur St                           | NULL           | United Kingdom           |
+| Sales                |        2500 | Oxford              | Magdalen Centre, The Oxford Science Park | Oxford         | United Kingdom           |
+| Public Relations     |        2700 | Munich              | Schwanthalerstr. 7031                    | Bavaria        | Germany                  |
++----------------------+-------------+---------------------+------------------------------------------+----------------+--------------------------+
+
+
+select  last_name,departments.department_id, department_name from employees join departments on  employees.department_id= departments.department_id;
+
+
+2)
+mysql> select  last_name,departments.department_id, department_name from employees join departments on  employees.department_id= departments.department_id;
++-------------+---------------+------------------+
+| last_name   | department_id | department_name  |
++-------------+---------------+------------------+
+| Whalen      |            10 | Administration   |
+| Hartstein   |            20 | Marketing        |
+| Fay         |            20 | Marketing        |
+| Raphaely    |            30 | Purchasing       |
+| Khoo        |            30 | Purchasing       |
+| Baida       |            30 | Purchasing       |
+| Tobias      |            30 | Purchasing       |
+| Himuro      |            30 | Purchasing       |
+| Colmenares  |            30 | Purchasing       |
+| Mavris      |            40 | Human Resources  |
+| Weiss       |            50 | Shipping         |
+| Fripp       |            50 | Shipping         |
+| Kaufling    |            50 | Shipping         |
+| Vollman     |            50 | Shipping         |
+| Mourgos     |            50 | Shipping         |
+| Nayer       |            50 | Shipping         |
+| Mikkilineni |            50 | Shipping         |
+| Landry      |            50 | Shipping         |
+| Markle      |            50 | Shipping         |
+| Bissot      |            50 | Shipping         |
+| Atkinson    |            50 | Shipping         |
+| Marlow      |            50 | Shipping         |
+| Olson       |            50 | Shipping         |
+| Mallin      |            50 | Shipping         |
+| Rogers      |            50 | Shipping         |
+| Gee         |            50 | Shipping         |
+| Philtanker  |            50 | Shipping         |
+| Ladwig      |            50 | Shipping         |
+| Stiles      |            50 | Shipping         |
+| Seo         |            50 | Shipping         |
+| Patel       |            50 | Shipping         |
+| Rajs        |            50 | Shipping         |
+| Davies      |            50 | Shipping         |
+| Matos       |            50 | Shipping         |
+| Vargas      |            50 | Shipping         |
+| Taylor      |            50 | Shipping         |
+| Fleaur      |            50 | Shipping         |
+| Sullivan    |            50 | Shipping         |
+| Geoni       |            50 | Shipping         |
+| Sarchand    |            50 | Shipping         |
+| Bull        |            50 | Shipping         |
+| Dellinger   |            50 | Shipping         |
+| Cabrio      |            50 | Shipping         |
+| Chung       |            50 | Shipping         |
+| Dilly       |            50 | Shipping         |
+| Gates       |            50 | Shipping         |
+| Perkins     |            50 | Shipping         |
+| Bell        |            50 | Shipping         |
+| Everett     |            50 | Shipping         |
+| McCain      |            50 | Shipping         |
+| Jones       |            50 | Shipping         |
+| Walsh       |            50 | Shipping         |
+| Feeney      |            50 | Shipping         |
+| OConnell    |            50 | Shipping         |
+| Grant       |            50 | Shipping         |
+| Hunold      |            60 | IT               |
+| Ernst       |            60 | IT               |
+| Austin      |            60 | IT               |
+| Pataballa   |            60 | IT               |
+| Lorentz     |            60 | IT               |
+| Baer        |            70 | Public Relations |
+| Russell     |            80 | Sales            |
+| Partners    |            80 | Sales            |
+| Errazuriz   |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Zlotkey     |            80 | Sales            |
+| Tucker      |            80 | Sales            |
+| Bernstein   |            80 | Sales            |
+| Hall        |            80 | Sales            |
+| Olsen       |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Tuvault     |            80 | Sales            |
+| Sully       |            80 | Sales            |
+| McEwen      |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Doran       |            80 | Sales            |
+| Sewall      |            80 | Sales            |
+| Vishney     |            80 | Sales            |
+| Greene      |            80 | Sales            |
+| Marvins     |            80 | Sales            |
+| Lee         |            80 | Sales            |
+| Ande        |            80 | Sales            |
+| Banda       |            80 | Sales            |
+| Ozer        |            80 | Sales            |
+| Bloom       |            80 | Sales            |
+| Fox         |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Bates       |            80 | Sales            |
+| Kumar       |            80 | Sales            |
+| Abel        |            80 | Sales            |
+| Hutton      |            80 | Sales            |
+| Taylor      |            80 | Sales            |
+| Livingston  |            80 | Sales            |
+| Johnson     |            80 | Sales            |
+| King        |            90 | Executive        |
+| Kochhar     |            90 | Executive        |
+| De Haan     |            90 | Executive        |
+| Greenberg   |           100 | Finance          |
+| Faviet      |           100 | Finance          |
+| Chen        |           100 | Finance          |
+| Sciarra     |           100 | Finance          |
+| Urman       |           100 | Finance          |
+| Popp        |           100 | Finance          |
+| Higgins     |           110 | Accounting       |
+| Gietz       |           110 | Accounting       |
++-------------+---------------+------------------+
+105 rows in set (0.00 sec)
+
+3)
+
+mysql> select d.last_name as Employee_Name, d.employee_id as Eid , e.last_name  as Manager, e.employee_id as Man_ID from employees d join employees e on d.manager_id=e.employee_id;
++---------------+-----+-----------+--------+
+| Employee_Name | Eid | Manager   | Man_ID |
++---------------+-----+-----------+--------+
+| Kochhar       | 101 | King      |    100 |
+| De Haan       | 102 | King      |    100 |
+| Hunold        | 103 | De Haan   |    102 |
+| Ernst         | 104 | Hunold    |    103 |
+| Austin        | 105 | Hunold    |    103 |
+| Pataballa     | 106 | Hunold    |    103 |
+| Lorentz       | 107 | Hunold    |    103 |
+| Greenberg     | 108 | Kochhar   |    101 |
+| Faviet        | 109 | Greenberg |    108 |
+| Chen          | 110 | Greenberg |    108 |
+| Sciarra       | 111 | Greenberg |    108 |
+| Urman         | 112 | Greenberg |    108 |
+| Popp          | 113 | Greenberg |    108 |
+| Raphaely      | 114 | King      |    100 |
+| Khoo          | 115 | Raphaely  |    114 |
+| Baida         | 116 | Raphaely  |    114 |
+| Tobias        | 117 | Raphaely  |    114 |
+| Himuro        | 118 | Raphaely  |    114 |
+| Colmenares    | 119 | Raphaely  |    114 |
+| Weiss         | 120 | King      |    100 |
+| Fripp         | 121 | King      |    100 |
+| Kaufling      | 122 | King      |    100 |
+| Vollman       | 123 | King      |    100 |
+| Mourgos       | 124 | King      |    100 |
+| Nayer         | 125 | Weiss     |    120 |
+| Mikkilineni   | 126 | Weiss     |    120 |
+| Landry        | 127 | Weiss     |    120 |
+| Markle        | 128 | Weiss     |    120 |
+| Bissot        | 129 | Fripp     |    121 |
+| Atkinson      | 130 | Fripp     |    121 |
+| Marlow        | 131 | Fripp     |    121 |
+| Olson         | 132 | Fripp     |    121 |
+| Mallin        | 133 | Kaufling  |    122 |
+| Rogers        | 134 | Kaufling  |    122 |
+| Gee           | 135 | Kaufling  |    122 |
+| Philtanker    | 136 | Kaufling  |    122 |
+| Ladwig        | 137 | Vollman   |    123 |
+| Stiles        | 138 | Vollman   |    123 |
+| Seo           | 139 | Vollman   |    123 |
+| Patel         | 140 | Vollman   |    123 |
+| Rajs          | 141 | Mourgos   |    124 |
+| Davies        | 142 | Mourgos   |    124 |
+| Matos         | 143 | Mourgos   |    124 |
+| Vargas        | 144 | Mourgos   |    124 |
+| Russell       | 145 | King      |    100 |
+| Partners      | 146 | King      |    100 |
+| Errazuriz     | 147 | King      |    100 |
+| Cambrault     | 148 | King      |    100 |
+| Zlotkey       | 149 | King      |    100 |
+| Tucker        | 150 | Russell   |    145 |
+| Bernstein     | 151 | Russell   |    145 |
+| Hall          | 152 | Russell   |    145 |
+| Olsen         | 153 | Russell   |    145 |
+| Cambrault     | 154 | Russell   |    145 |
+| Tuvault       | 155 | Russell   |    145 |
+| Sully         | 157 | Partners  |    146 |
+| McEwen        | 158 | Partners  |    146 |
+| Smith         | 159 | Partners  |    146 |
+| Doran         | 160 | Partners  |    146 |
+| Sewall        | 161 | Partners  |    146 |
+| Vishney       | 162 | Errazuriz |    147 |
+| Greene        | 163 | Errazuriz |    147 |
+| Marvins       | 164 | Errazuriz |    147 |
+| Lee           | 165 | Errazuriz |    147 |
+| Ande          | 166 | Errazuriz |    147 |
+| Banda         | 167 | Errazuriz |    147 |
+| Ozer          | 168 | Cambrault |    148 |
+| Bloom         | 169 | Cambrault |    148 |
+| Fox           | 170 | Cambrault |    148 |
+| Smith         | 171 | Cambrault |    148 |
+| Bates         | 172 | Cambrault |    148 |
+| Kumar         | 173 | Cambrault |    148 |
+| Abel          | 174 | Zlotkey   |    149 |
+| Hutton        | 175 | Zlotkey   |    149 |
+| Taylor        | 176 | Zlotkey   |    149 |
+| Livingston    | 177 | Zlotkey   |    149 |
+| Grant         | 178 | Zlotkey   |    149 |
+| Johnson       | 179 | Zlotkey   |    149 |
+| Taylor        | 180 | Weiss     |    120 |
+| Fleaur        | 181 | Weiss     |    120 |
+| Sullivan      | 182 | Weiss     |    120 |
+| Geoni         | 183 | Weiss     |    120 |
+| Sarchand      | 184 | Fripp     |    121 |
+| Bull          | 185 | Fripp     |    121 |
+| Dellinger     | 186 | Fripp     |    121 |
+| Cabrio        | 187 | Fripp     |    121 |
+| Chung         | 188 | Kaufling  |    122 |
+| Dilly         | 189 | Kaufling  |    122 |
+| Gates         | 190 | Kaufling  |    122 |
+| Perkins       | 191 | Kaufling  |    122 |
+| Bell          | 192 | Vollman   |    123 |
+| Everett       | 193 | Vollman   |    123 |
+| McCain        | 194 | Vollman   |    123 |
+| Jones         | 195 | Vollman   |    123 |
+| Walsh         | 196 | Mourgos   |    124 |
+| Feeney        | 197 | Mourgos   |    124 |
+| OConnell      | 198 | Mourgos   |    124 |
+| Grant         | 199 | Mourgos   |    124 |
+| Whalen        | 200 | Kochhar   |    101 |
+| Hartstein     | 201 | King      |    100 |
+| Fay           | 202 | Hartstein |    201 |
+| Mavris        | 203 | Kochhar   |    101 |
+| Baer          | 204 | Kochhar   |    101 |
+| Higgins       | 205 | Kochhar   |    101 |
+| Gietz         | 206 | Higgins   |    205 |
++---------------+-----+-----------+--------+
+105 rows in set (0.00 sec)
+
+4)
+
+select d.last_name as Employee_Name, d.employee_id as Eid , e.last_name  as Manager, e.employee_id as Man_ID from employees d join employees e on d.manager_id=e.employee_id;
+
+
+
+mysql> select e.last_name, d.department_id,  d.last_name as Colleagues from employees d join employees e where d.department_id=e.department_id and d.employee_id != e.employee_id ;
+
+
+
+
+5)
+
+select last_name, hire_date from employees where department_id =(select department_id from employees where last_name="Zlotkey") and last_name !="Zlotkey";
+
+
+6)
+
+select employee_id, last_name,salary from employees where salary > (select avg(salary) from employees) order by salary asc;
+
+7)
+select employee_id, last_name from employees where 
+
+
+
+8)
+
+select e.last_name, d.department_name, e.job_id from locations l join departments d join employees e on l.location_id=d.location_id and e.department_id=d.department_id where l.location_id=1700;
+9)
+
+select e.department_id, e.last_name, e.job_id from locations l join departments d join employees e on l.location_id=d.location_id and e.department_id=d.department_id and department_name="Executive";
+
+mysql> select e.department_id, e.last_name, e.job_id from locations l join departments d join employees e on l.location_id=d.location_id and e.department_id=d.department_id and department_name="Executive";
++---------------+-----------+---------+
+| department_id | last_name | job_id  |
++---------------+-----------+---------+
+|            90 | King      | AD_PRES |
+|            90 | Kochhar   | AD_VP   |
+|            90 | De Haan   | AD_VP   |
++---------------+-----------+---------+
+
+10)
+
+
+
+
+
+
+
+
+select last_name, department_name, job_id from 
+
+select department_name,d.location_id,city, street_address, state_province,country_name from locations l join departments d join countries c on l.location_i d=d.location_id and l.country_id=c.country_id;
+
+select e.last_name, d.department_name, e.job_id from locations l join departments d join employees e on l.location_id=d.location_id and e.department_id=d.department_id where l.location_id=1700;
+
+
+
+
+
+
